@@ -1,0 +1,89 @@
+"""
+Python virtual environments
+
+"""
+
+ Virtual environments provide a way to install packages specfic to a project
+ Each project should have seperate environment to have its own packages 
+ 
+ Need pyhton 3.3+ to install venv
+ 
+ ## List the packages installed on system (global installation of python)
+ 
+ $pip list
+ 
+ ## Create new virtual environment
+ 
+ $python3 -m venv <name of environment> 
+ 
+ $python3 -m venv venv 
+ 
+ ## to activate virtual environment
+ 
+ $source venv/bin/activate
+ 
+ ## to check if the venv is activated 
+ 
+ (venv) DRMB-606XG8WP:roar arvind.penumaka$ which python
+ /Users/arvind.penumaka/Documents/roar/venv/bin/python
+ 
+ ## To list the packages installed 
+ 
+ $pip list
+ 
+ ## To install the packages specific to this envinonment. 
+ ## Lets install pytz 
+ 
+ $pip install pytz
+ 
+ ## Check if the pytz 
+ 
+ $pip list 
+ 
+ ### Requirements.txt file  - This file is used to install the packages used in this project.
+ ### To export the packages installed into requirements.txt
+ 
+$pip freeze > requirements.txt
+
+## To deactivate the python environment
+
+$deactivate 
+
+(venv) DRMB-606XG8WP:roar arvind.penumaka$ deactivate
+
+## To remove the folder 
+
+$rm -rf venv
+
+## To install all the packages from requirments.txt
+
+$pip install -r requirements.txt
+
+## Please dont put any of the project files in the virtual environment
+## Dont commit anything to the source control 
+
+## Create an virtual environment with access to system packages 
+
+$python3 -m venv venv --system-site-packages
+
+$source venv/bin/activate
+
+## Any packages install on this virtual environment will not effect the global installation. 
+
+
+
+
+
+
+
+
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
