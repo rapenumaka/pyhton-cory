@@ -1,0 +1,45 @@
+Why is there __init__.py in my python package 
+
+Python defines two types of packages, regular packages and namespace packages. Regular packages are traditional packages as they existed in Python 3.2 and earlier. A regular package is typically implemented as a directory containing an __init__.py file. When a regular package is imported, this __init__.py file is implicitly executed, and the objects it defines are bound to names in the package’s namespace. The __init__.py file can contain the same Python code that any other module can contain, and Python will add some additional attributes to the module when it is imported.
+
+
+________________________________________________________________________________________________________________________________
+
+
+Why __name__ == "__main__" in python?
+
+
+Using the if __name__ == “__main__” statement is quite regular in Python files. However, it may seem confusing at times. This aim of this article is to uncover the behaviour of the statement and further discusses on where to use it. So let’s get started!
+A Python module is a file that has a .py extension. All we need to do is create a file that contains legitimate Python code and give the file a name with .py extension. A module can be imported to other modules or run directly via command line.
+The __name__ is a special built-in variable which evaluates to the name of the current module. However, if a module is being run directly (from command line), then __name__ instead is set to the string “__main__”.
+Let’s put together this little code example for understanding. Suppose we create two modules, foo and bar with the following code:
+
+
+# foo.py
+import bar
+print("foo.__name__ set to ", __name__)
+
+
+# bar.py
+print("bar.__name__ set to ", __name__)
+
+
+On invoking the bar module from command line, its __name__ attribute will be set to “__main__”:
+
+
+python bar.py
+>>>
+bar.__name__ set to __main__
+
+
+
+python foo.py
+>>>
+bar.__name__ set to bar
+foo.__name__ set to __main__
+
+
+Therefore, we can test whether our module is being run directly or being imported using the following check
+
+if __name__ == "__main__":
+    ...
