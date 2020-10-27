@@ -1,0 +1,41 @@
+name = 'Ravi'
+age = 34
+
+f_for = '{0} is {1} years old. {0}'.format(name,age)
+print(f_for)
+
+class Person():
+    def __init__(self,name,age):
+        self.age=age
+        self.name=name
+p1 = Person(29,'Jack')
+
+sentence = 'My name is {0.name} and my age is {0.age}'.format(p1)
+
+print(sentence)
+
+
+## Passing the keyword arguments
+
+
+print()
+
+
+for m in range(0,10):
+    print(" Value is {:02}".format(m))
+
+my_sen = '1MB is equal to {:,.2f}'.format(1000*1000)
+print(my_sen)
+
+
+## Formating Dates
+
+import datetime
+my_date = datetime.datetime(2016,9,24,12,30,45)
+print(my_date)
+
+## Printing in a different format
+
+my_new_date = '{:%B %d, %Y}'.format(my_date)
+
+print(my_new_date)
